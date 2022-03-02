@@ -149,3 +149,6 @@ window.addEventListener("resize", function () {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
+const audio = new Audio("music/dreamstate.webm")
+audio.play();

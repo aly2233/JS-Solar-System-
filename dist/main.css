@@ -88,3 +88,7 @@ h1 {
   cursor: pointer;
   background-color: lightgrey;
 }
+
+audio {
+  display: none;
+}

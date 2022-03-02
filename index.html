@@ -36,7 +36,7 @@
         </button>
         <button type ="button" class="volume_button">
             <span class ="button_icon_volume">
-                <img src="https://img.icons8.com/ios/50/000000/mute--v1.png"/>
+                <img src="https://img.icons8.com/ios/50/000000/mute--v1.png" onclick="toggleMusic()">
             </span>
         </button>
     </span>
@@ -50,6 +50,16 @@
         <span class="button_zoom_out">
             <img src="https://img.icons8.com/external-tanah-basah-detailed-outline-tanah-basah/50/000000/external-minus-user-interface-tanah-basah-detailed-outline-tanah-basah-2.png"/>
     </button>
+    <script>
+        const audio = new Audio("music/dreamstate.webm");
+        function toggleMusic() {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    </script>
 
     
 
