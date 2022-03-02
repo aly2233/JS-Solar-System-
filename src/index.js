@@ -2,18 +2,18 @@ import * as THREE from 'three';
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls.js";
 
 const starsTexture = "img/background_stars.jpeg";
-const sunTexture = "../img/sun.jpeg";
-const mercuryTexture = "../img/mercury.jpeg";
-const venusTexture = "../img/venus.jpeg";
-const earthTexture = "../img/earth.jpeg";
-const marsTexture = "../img/mars.jpeg";
-const jupiterTexture = "../img/jupiter.jpeg";
-const saturnTexture = "../img/saturn.jpeg";
-const saturnRingTexture = "../img/saturn_ring.jpeg";
-const uranusTexture = "../img/uranus.jpeg";
-const uranusRingTexture = "../img/uranus_ring.jpeg";
-const neptuneTexture = "../img/neptune.jpeg";
-const plutoTexture = "../img/pluto.jpeg";
+const sunTexture = "img/sun.jpeg";
+const mercuryTexture = "img/mercury.jpeg";
+const venusTexture = "img/venus.jpeg";
+const earthTexture = "img/earth.jpeg";
+const marsTexture = "img/mars.jpeg";
+const jupiterTexture = "img/jupiter.jpeg";
+const saturnTexture = "img/saturn.jpeg";
+const saturnRingTexture = "img/saturn_ring.jpeg";
+const uranusTexture = "img/uranus.jpeg";
+const uranusRingTexture = "img/uranus_ring.jpeg";
+const neptuneTexture = "img/neptune.jpeg";
+const plutoTexture = "img/pluto.jpeg";
 
 const renderer = new THREE.WebGLRenderer();
 
