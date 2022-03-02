@@ -34,3 +34,27 @@ h1 {
 .github_button:hover {
     cursor: pointer;
 }
+
+.setting_buttons {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+  }
+  
+  .menu_button {
+    height: 60px;
+  }
+  
+  .volume_button {
+    height: 60px;
+    margin-left: 30px;
+  }
+  
+  .menu_button:hover {
+    cursor: pointer;
+  }
+  
+  .volume_button:hover {
+    cursor: pointer;
+  }
+  
