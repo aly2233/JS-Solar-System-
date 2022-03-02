@@ -1,0 +1,39 @@
+{
+  "name": "solar-system-js-project",
+  "version": "1.0.0",
+  "description": "Background:",
+  "main": "babel.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch --mode=development",
+    "build": "webpack --mode=production"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aly2233/JS-Solar-System-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aly2233/JS-Solar-System-/issues"
+  },
+  "homepage": "https://github.com/aly2233/JS-Solar-System-#readme",
+  "dependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.3",
+    "core-js": "^3.21.1",
+    "css-loader": "^6.6.0",
+    "mini-css-extract-plugin": "^2.5.3",
+    "regenerator-runtime": "^0.13.9",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0",
+    "three": "^0.138.0",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
+  }
+}
