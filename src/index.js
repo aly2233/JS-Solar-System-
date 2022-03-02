@@ -92,22 +92,26 @@ const mercury = createPlanet(3.2, mercuryTexture, 20);
 const venus = createPlanet(5.8, venusTexture, 37.374);
 const earth = createPlanet(6, earthTexture, 51.6752);
 const mars = createPlanet(4, marsTexture, 78.721);
-const jupiter = createPlanet(12, jupiterTexture, 200);
-const saturn = createPlanet(10, saturnTexture, 300, {
+const jupiter = createPlanet(12, jupiterTexture, 150);
+const saturn = createPlanet(10, saturnTexture, 200, {
   innerRadius: 10,
   outerRadius: 20,
   texture: saturnRingTexture
 });
-const uranus = createPlanet(7, uranusTexture, 400, {
+const uranus = createPlanet(7, uranusTexture, 275, {
   innerRadius: 7,
   outerRadius: 12,
   texture: uranusRingTexture
 });
-const neptune = createPlanet(7, neptuneTexture, 500);
-const pluto = createPlanet(2.8, plutoTexture, 600);
+const neptune = createPlanet(7, neptuneTexture, 315);
+const pluto = createPlanet(2.8, plutoTexture, 400);
 
-const pointLight = new THREE.PointLight(0xffffff, 2, 300);
+//Add light source coming from sun
+const pointLight = new THREE.PointLight(0xffffff, 2, 200);
 scene.add(pointLight);
+//Add another light source for further planets, dimmer light
+const pointLight2 = new THREE.PointLight(0xffffff, 1.5, 400);
+scene.add(pointLight2);
 
 function animate() {
   //Set rotation for self
