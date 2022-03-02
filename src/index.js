@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls.js";
 
-const starsTexture = "../img/background_stars.jpeg";
+const starsTexture = "img/background_stars.jpeg";
 const sunTexture = "../img/sun.jpeg";
 const mercuryTexture = "../img/mercury.jpeg";
 const venusTexture = "../img/venus.jpeg";
@@ -52,9 +52,7 @@ scene.background = cubeTextureLoader.load([
 
 const textureLoader = new THREE.TextureLoader();
 const sunGeo = new THREE.SphereGeometry(16, 30, 30);
-const sunMat = new THREE.MeshBasicMaterial({
-  map: textureLoader.load(sunTexture)
-});
+const sunMat = new THREE.MeshBasicMaterial({map: textureLoader.load(sunTexture)});
 const sun = new THREE.Mesh(sunGeo, sunMat);
 scene.add(sun);
 
