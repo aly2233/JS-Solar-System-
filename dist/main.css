@@ -1,3 +1,90 @@
-body{margin:0}h1{font-size:60px;font-family:Arial,Helvetica,sans-serif;color:#fff;position:fixed;left:41%;top:5%;transform:translateX(-50%, -50%)}.personal_buttons{position:fixed;bottom:30px;left:30px}.github_button{height:60px}.linkedin_button{height:60px;margin-left:30px}.linkedin_button:hover{cursor:pointer}.github_button:hover{cursor:pointer}.setting_buttons{position:fixed;bottom:30px;right:30px}.menu_button{height:60px}.volume_button{height:60px;margin-left:30px}.menu_button:hover{cursor:pointer}.volume_button:hover{cursor:pointer}
+/*!*************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
+  \*************************************************************************************************************************************/
+body {
+  margin: 0;
+}
 
-/*# sourceMappingURL=main.css.map*/
+h1 {
+  font-size: 60px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  position: fixed;
+  left: 40%;
+  top: 1%;
+  transform: translateX(-50%, -50%);
+}
+
+.personal_buttons {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+}
+
+.github_button {
+  height: 60px;
+}
+
+.linkedin_button {
+  height: 60px;
+  margin-left: 30px;
+}
+
+.linkedin_button:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
+.github_button:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
+.setting_buttons {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}
+
+.menu_button {
+  height: 60px;
+}
+
+.volume_button {
+  height: 60px;
+  margin-left: 30px;
+}
+
+.menu_button:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
+.volume_button:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
+.zoom_in {
+  height: 60px;
+  position: fixed;
+  top: 110px;
+  left: 30px;
+}
+
+.zoom_out {
+  height: 60px;
+  position: fixed;
+  top: 210px;
+  left: 30px;
+}
+
+.zoom_out:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
+.zoom_in:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+}

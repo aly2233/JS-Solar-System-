@@ -7,8 +7,8 @@ h1 {
     font-family:Arial, Helvetica, sans-serif;
     color: white;
     position: fixed;
-    left: 41%;
-    top: 5%;
+    left: 40%;
+    top: 1%;
     transform: translateX(-50%, -50%);
 }
 
@@ -29,32 +29,60 @@ h1 {
 
 .linkedin_button:hover {
     cursor: pointer;
+    background-color: lightgrey;
 }
 
 .github_button:hover {
     cursor: pointer;
+    background-color: lightgrey;
 }
 
 .setting_buttons {
     position: fixed;
     bottom: 30px;
     right: 30px;
-  }
+}
   
-  .menu_button {
+.menu_button {
     height: 60px;
-  }
-  
-  .volume_button {
+}
+
+.volume_button {
     height: 60px;
     margin-left: 30px;
-  }
-  
-  .menu_button:hover {
+}
+
+.menu_button:hover {
     cursor: pointer;
-  }
-  
-  .volume_button:hover {
+    background-color: lightgrey;
+}
+
+.volume_button:hover {
     cursor: pointer;
-  }
-  
+    background-color: lightgrey;
+}
+
+.zoom_in {
+    height: 60px;
+    position: fixed;
+    top: 110px;
+    left: 30px;
+
+}
+
+.zoom_out {
+    height: 60px;
+    position: fixed;
+    top: 210px;
+    left: 30px;
+}
+
+.zoom_out:hover {
+    cursor: pointer;
+    background-color: lightgrey;
+}
+
+.zoom_in:hover {
+    cursor: pointer;
+    background-color: lightgrey;
+}
