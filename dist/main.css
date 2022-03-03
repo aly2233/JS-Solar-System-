@@ -211,3 +211,33 @@ audio {
   top: 50px;
   align-content: center;
 }
+
+.overview_button {
+  position: fixed;
+  right: 66px;
+  top: 484px;
+  font-family: monospace;
+  font-size: 20px;
+}
+
+.overview_button:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
+.distance_calc {
+  list-style: none;
+  font-family: monospace;
+  position: fixed;
+  color: white;
+  top: 50px;
+  left: 40px;
+}
+
+.distance_calc > li {
+  margin-bottom: 10px;
+}
+
+.distance_calc > li:last-child {
+  display: none;
+}

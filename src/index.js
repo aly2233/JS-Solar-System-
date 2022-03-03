@@ -15,6 +15,8 @@ const uranusRingTexture = "img/uranus_ring.jpeg";
 const neptuneTexture = "img/neptune.jpeg";
 const plutoTexture = "img/pluto.jpeg";
 
+
+
 const renderer = new THREE.WebGLRenderer();
 
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -58,7 +60,7 @@ scene.add(sun);
 
 
 //Function to create planets
-function createPlanet(size, texture, position, ring) {
+function createPlanet(size, texture, position, ring, distance) {
   const geo = new THREE.SphereGeometry(size, 30, 30);
   const mat = new THREE.MeshStandardMaterial({
     map: textureLoader.load(texture)
@@ -88,23 +90,23 @@ function createPlanet(size, texture, position, ring) {
 
 
 //Create each planet
-const mercury = createPlanet(3.2, mercuryTexture, 30);
-const venus = createPlanet(5.8, venusTexture, 60);
-const earth = createPlanet(10, earthTexture, 75);
-const mars = createPlanet(4, marsTexture, 104);
-const jupiter = createPlanet(12, jupiterTexture, 200);
+const mercury = createPlanet(3.2, mercuryTexture, 30, 57900000);
+const venus = createPlanet(5.8, venusTexture, 60, 108200000);
+const earth = createPlanet(10, earthTexture, 75, 149600000);
+const mars = createPlanet(4, marsTexture, 104, 227900000);
+const jupiter = createPlanet(12, jupiterTexture, 200, 778600000);
 const saturn = createPlanet(10, saturnTexture, 300, {
   innerRadius: 10,
   outerRadius: 20,
   texture: saturnRingTexture
-});
+}, 1433500000);
 const uranus = createPlanet(7, uranusTexture, 400, {
   innerRadius: 7,
   outerRadius: 12,
   texture: uranusRingTexture
-});
-const neptune = createPlanet(7, neptuneTexture, 500);
-const pluto = createPlanet(2.8, plutoTexture, 600);
+}, 2872500000);
+const neptune = createPlanet(7, neptuneTexture, 500, 4495100000);
+const pluto = createPlanet(2.8, plutoTexture, 600, 5900000000);
 
 //Add light source coming from sun
 const pointLight = new THREE.PointLight(0xffffff, 1.5, 300);
@@ -150,3 +152,122 @@ window.addEventListener("resize", function () {
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
+function fitCameraToObject( camera, object, offset ) {
+
+  offset = offset || 20;
+  
+  const boundingBox = new THREE.Box3();
+  
+  boundingBox.setFromObject( object );
+  
+  const center = boundingBox.getCenter( new THREE.Vector3() );
+  const size = boundingBox.getSize( new THREE.Vector3() );
+  
+  const startDistance = center.distanceTo(camera.position);
+  // here we must check if the screen is horizontal or vertical, because camera.fov is
+  // based on the vertical direction.
+  const endDistance = camera.aspect > 1 ?
+            ((size.y/2)+offset) / Math.abs(Math.tan(camera.fov/2)) :
+            ((size.y/2)+offset) / Math.abs(Math.tan(camera.fov/2)) / camera.aspect ;
+  
+  
+  camera.position.set(
+    camera.position.x * endDistance / startDistance,
+    camera.position.y * endDistance / startDistance,
+    camera.position.z * endDistance / startDistance,
+    );
+  camera.lookAt(center);
+}
+
+const lastVisit = document.querySelector(".last_visit");
+const currentVisit = document.querySelector(".current_visit");
+const distanceTrav = document.querySelector(".distance_trav");
+const timeToTrav = document.querySelector(".travel_time");
+const travelMenu = document.querySelector(".travel_menu");
+const sunButton = document.querySelector(".sun_button");
+
+let lastEle = "Null";
+let lastDist = 0;
+let currentEle = "Null"
+let currentDist = 0;
+let travDist = 0;
+let travTime = 0;
+const travSpeed = 350400000;
+
+travelMenu.addEventListener("click", function(event) {
+  lastVisit.innerHTML = `Last Visit: ${lastEle}`;
+  currentVisit.innerHTML = `Current Visit: ${currentEle}`
+  travDist = Math.abs(lastDist - currentDist);
+  distanceTrav.innerHTML = `Distance Traveled: ${travDist} km`
+  lastDist = currentDist;
+  lastEle = currentEle;
+  travTime = travDist / travSpeed;
+  timeToTrav.innerHTML = `Time to Travel: About ${travTime.toFixed(2)} years with modern technology`;
+  if (timeToTrav.style.display = 'none') {
+    timeToTrav.style.display = 'block';
+  }
+
+})
+sunButton.addEventListener("click", function(event) {
+  fitCameraToObject(camera, sun)
+  currentEle = "Sun"
+  currentDist = 0;
+});
+const mercuryButton = document.querySelector(".mercury_button");
+mercuryButton.addEventListener("click", function(event) {
+  currentEle = "Mercury"
+  currentDist = 57900000;
+  fitCameraToObject(camera, mercury)
+});
+const venusButton = document.querySelector(".venus_button");
+venusButton.addEventListener("click", function(event) {
+  currentEle = "Venus"
+  currentDist = 108200000;
+  fitCameraToObject(camera, venus)
+});
+const earthButton = document.querySelector(".earth_button");
+earthButton.addEventListener("click", function(event) {
+  currentEle = "Earth"
+  currentDist = 149600000;
+  fitCameraToObject(camera, earth)
+});
+const marsButton = document.querySelector(".mars_button");
+marsButton.addEventListener("click", function(event) {
+  currentEle = "Mars"
+  currentDist = 227900000
+  fitCameraToObject(camera, mars)
+});
+const jupiterButton = document.querySelector(".jupiter_button");
+jupiterButton.addEventListener("click", function(event) {
+  currentEle = "Jupiter"
+  currentDist = 778600000
+  fitCameraToObject(camera, jupiter)
+});
+const saturnButton = document.querySelector(".saturn_button");
+saturnButton.addEventListener("click", function(event) {
+  currentEle = "Saturn"
+  currentDist = 1433500000
+  fitCameraToObject(camera, saturn)
+});
+const uranusButton = document.querySelector(".uranus_button");
+uranusButton.addEventListener("click", function(event) {
+  currentEle = "Uranus"
+  currentDist = 2872500000
+  fitCameraToObject(camera, uranus)
+});
+const neptuneButton = document.querySelector(".neptune_button");
+neptuneButton.addEventListener("click", function(event) {
+  currentEle = "Neptune"
+  currentDist = 4495100000
+  fitCameraToObject(camera, neptune)
+});
+const plutoButton = document.querySelector(".pluto_button");
+plutoButton.addEventListener("click", function(event) {
+  currentEle = "Pluto"
+  currentDist = 5900000000
+  fitCameraToObject(camera, pluto)
+});
+const overviewButton = document.querySelector(".overview_button") 
+overviewButton.addEventListener("click", function(event) {
+  camera.position.set(-260, 400, 425);
+});
