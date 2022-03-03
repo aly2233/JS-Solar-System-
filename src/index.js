@@ -118,7 +118,7 @@ scene.add(pointLight2);
 function animate() {
   //Set rotation for self
   sun.rotateY(0.00037037);
-  mercury.mesh.rotateY(0.0001704545);
+  mercury.mesh.rotateY(0.001704545);
   venus.mesh.rotateY(0.00411522);
   earth.mesh.rotateY(0.01);
   mars.mesh.rotateY(0.0096);
@@ -157,7 +157,7 @@ function stopMove(){
 function animateTwo() {
   //Set rotation for self
   sun.rotateY(0.00037037);
-  mercury.mesh.rotateY(0.0001704545);
+  mercury.mesh.rotateY(0.001704545);
   venus.mesh.rotateY(0.00411522);
   earth.mesh.rotateY(0.01);
   mars.mesh.rotateY(0.0096);
