@@ -60,7 +60,7 @@ scene.add(sun);
 
 
 //Function to create planets
-function createPlanet(size, texture, position, ring, distance) {
+function createPlanet(size, texture, position, ring) {
   const geo = new THREE.SphereGeometry(size, 30, 30);
   const mat = new THREE.MeshStandardMaterial({
     map: textureLoader.load(texture)
@@ -90,23 +90,23 @@ function createPlanet(size, texture, position, ring, distance) {
 
 
 //Create each planet
-const mercury = createPlanet(3.2, mercuryTexture, 30, 57900000);
-const venus = createPlanet(5.8, venusTexture, 60, 108200000);
-const earth = createPlanet(10, earthTexture, 75, 149600000);
-const mars = createPlanet(4, marsTexture, 104, 227900000);
-const jupiter = createPlanet(12, jupiterTexture, 200, 778600000);
+const mercury = createPlanet(3.2, mercuryTexture, 30);
+const venus = createPlanet(5.8, venusTexture, 60);
+const earth = createPlanet(10, earthTexture, 75);
+const mars = createPlanet(4, marsTexture, 104);
+const jupiter = createPlanet(12, jupiterTexture, 200);
 const saturn = createPlanet(10, saturnTexture, 300, {
   innerRadius: 10,
   outerRadius: 20,
   texture: saturnRingTexture
-}, 1433500000);
+});
 const uranus = createPlanet(7, uranusTexture, 400, {
   innerRadius: 7,
   outerRadius: 12,
   texture: uranusRingTexture
-}, 2872500000);
-const neptune = createPlanet(7, neptuneTexture, 500, 4495100000);
-const pluto = createPlanet(2.8, plutoTexture, 600, 5900000000);
+});
+const neptune = createPlanet(7, neptuneTexture, 500);
+const pluto = createPlanet(2.8, plutoTexture, 600);
 
 //Add light source coming from sun
 const pointLight = new THREE.PointLight(0xffffff, 1.5, 300);
@@ -202,7 +202,7 @@ travelMenu.addEventListener("click", function(event) {
   lastDist = currentDist;
   lastEle = currentEle;
   travTime = travDist / travSpeed;
-  timeToTrav.innerHTML = `Time to Travel: About ${travTime.toFixed(2)} years with modern technology`;
+  timeToTrav.innerHTML = `Time to Travel: About ${travTime.toFixed(2)} years`;
   if (timeToTrav.style.display = 'none') {
     timeToTrav.style.display = 'block';
   }
@@ -270,4 +270,5 @@ plutoButton.addEventListener("click", function(event) {
 const overviewButton = document.querySelector(".overview_button") 
 overviewButton.addEventListener("click", function(event) {
   camera.position.set(-260, 400, 425);
+  orbit.update();
 });
