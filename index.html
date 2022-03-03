@@ -60,8 +60,8 @@
 
 
     
-    <div class="gradient-border" id="box">
-        <ul id = "instruction_menu">
+    <div class="gradient-border" id="box" style="display:none;">
+        <ul id = "instruction_menu" style="display:none;">
             <li>Welcome to Alan's Somewhat Accurate Solar System!</li>
             <li>Left click and drag to rotate</li>
             <li>Right click and drag to move around</li>
@@ -86,8 +86,10 @@
         <button class="neptune_button">Neptune</button>
         <button class="pluto_button">Pluto</button>
     </div>
-
-    <button class="overview_button">Overview</button>
+    <div class = "tech_buttons">
+        <button class="overview_button">Reset Camera</button>
+        <button class="reset_button">Refresh Page</button>
+    </div>
 
     <div class = "distance_calc">
         <li class = "last_visit">Last Visit: Null</li>
@@ -95,6 +97,7 @@
         <li class = "distance_trav">Distance Traveled: Null</li>
         <li class = "travel_time">This would take _ years with current technology</li>
     </div>
+
 
     </ul>
     <script>

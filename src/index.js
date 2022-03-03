@@ -92,8 +92,8 @@ function createPlanet(size, texture, position, ring) {
 //Create each planet
 const mercury = createPlanet(3.2, mercuryTexture, 30);
 const venus = createPlanet(5.8, venusTexture, 60);
-const earth = createPlanet(10, earthTexture, 75);
-const mars = createPlanet(4, marsTexture, 104);
+const earth = createPlanet(10, earthTexture, 85);
+const mars = createPlanet(4, marsTexture, 114);
 const jupiter = createPlanet(12, jupiterTexture, 200);
 const saturn = createPlanet(10, saturnTexture, 300, {
   innerRadius: 10,
@@ -213,62 +213,77 @@ sunButton.addEventListener("click", function(event) {
   currentEle = "Sun"
   currentDist = 0;
 });
+
 const mercuryButton = document.querySelector(".mercury_button");
 mercuryButton.addEventListener("click", function(event) {
   currentEle = "Mercury"
   currentDist = 57900000;
   fitCameraToObject(camera, mercury)
 });
+
 const venusButton = document.querySelector(".venus_button");
 venusButton.addEventListener("click", function(event) {
   currentEle = "Venus"
   currentDist = 108200000;
   fitCameraToObject(camera, venus)
 });
+
 const earthButton = document.querySelector(".earth_button");
 earthButton.addEventListener("click", function(event) {
   currentEle = "Earth"
   currentDist = 149600000;
   fitCameraToObject(camera, earth)
 });
+
 const marsButton = document.querySelector(".mars_button");
 marsButton.addEventListener("click", function(event) {
   currentEle = "Mars"
   currentDist = 227900000
   fitCameraToObject(camera, mars)
 });
+
 const jupiterButton = document.querySelector(".jupiter_button");
 jupiterButton.addEventListener("click", function(event) {
   currentEle = "Jupiter"
   currentDist = 778600000
   fitCameraToObject(camera, jupiter)
 });
+
 const saturnButton = document.querySelector(".saturn_button");
 saturnButton.addEventListener("click", function(event) {
   currentEle = "Saturn"
   currentDist = 1433500000
   fitCameraToObject(camera, saturn)
 });
+
 const uranusButton = document.querySelector(".uranus_button");
 uranusButton.addEventListener("click", function(event) {
   currentEle = "Uranus"
   currentDist = 2872500000
   fitCameraToObject(camera, uranus)
 });
+
 const neptuneButton = document.querySelector(".neptune_button");
 neptuneButton.addEventListener("click", function(event) {
   currentEle = "Neptune"
   currentDist = 4495100000
   fitCameraToObject(camera, neptune)
 });
+
 const plutoButton = document.querySelector(".pluto_button");
 plutoButton.addEventListener("click", function(event) {
   currentEle = "Pluto"
   currentDist = 5900000000
   fitCameraToObject(camera, pluto)
 });
+
 const overviewButton = document.querySelector(".overview_button") 
 overviewButton.addEventListener("click", function(event) {
   camera.position.set(-260, 400, 425);
   orbit.update();
 });
+
+const resetButton = document.querySelector(".reset_button")
+resetButton.addEventListener("click", function(event) {
+  location.reload();
+})

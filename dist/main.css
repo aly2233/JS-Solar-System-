@@ -212,17 +212,24 @@ audio {
   align-content: center;
 }
 
-.overview_button {
+.tech_buttons {
   position: fixed;
-  right: 66px;
-  top: 484px;
+  right: 41px;
+  top: 860px;
   font-family: monospace;
   font-size: 20px;
 }
 
-.overview_button:hover {
+.tech_buttons > button {
+  display: block;
+  font-size: 20px;
+  font-family: monospace;
+  margin-bottom: 10px;
+}
+
+.tech_buttons > button:hover {
   cursor: pointer;
-  background-color: lightgrey;
+  background-color: lightgray;
 }
 
 .distance_calc {
