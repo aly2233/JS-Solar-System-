@@ -225,7 +225,7 @@ const timeToTrav = document.querySelector(".travel_time");
 const travelMenu = document.querySelector(".travel_menu");
 const sunButton = document.querySelector(".sun_button");
 
-let lastEle = "Null";
+let lastEle = "Sun";
 let lastDist = 0;
 let currentEle = "Null"
 let currentDist = 0;
@@ -245,8 +245,14 @@ const infoPage = document.querySelector(".info_page")
 travelMenu.addEventListener("click", function(event) {
   lastVisit.innerHTML = `Last Visit: ${lastEle}`;
   currentVisit.innerHTML = `Current Visit: ${currentEle}`
+  if (currentVisit.style.display = 'none') {
+    currentVisit.style.display = 'block';
+  }
   travDist = Math.abs(lastDist - currentDist);
   distanceTrav.innerHTML = `Distance Traveled: ${travDist} km`
+  if (distanceTrav.style.display = 'none') {
+    distanceTrav.style.display = 'block';
+  }
   lastDist = currentDist;
   lastEle = currentEle;
   travTime = travDist / travSpeed;
