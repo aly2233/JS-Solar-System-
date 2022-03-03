@@ -142,6 +142,45 @@ function animate() {
   renderer.render(scene, camera);
 }
 
+function stopMove(){
+  mercury.obj.rotateY(0.0);
+  venus.obj.rotateY(0.0);
+  earth.obj.rotateY(0.0);
+  mars.obj.rotateY(0.0);
+  jupiter.obj.rotateY(0.0);
+  saturn.obj.rotateY(0.0);
+  uranus.obj.rotateY(0.0);
+  neptune.obj.rotateY(0.0);
+  pluto.obj.rotateY(0.0);
+}
+
+function animateTwo() {
+  //Set rotation for self
+  sun.rotateY(0.00037037);
+  mercury.mesh.rotateY(0.0001704545);
+  venus.mesh.rotateY(0.00411522);
+  earth.mesh.rotateY(0.01);
+  mars.mesh.rotateY(0.0096);
+  jupiter.mesh.rotateY(0.024);
+  saturn.mesh.rotateY(0.02181818);
+  uranus.mesh.rotateY(0.01411764);
+  neptune.mesh.rotateY(0.015);
+  pluto.mesh.rotateY(0.001868627);
+
+  //Set rotation around sun
+  mercury.obj.rotateY(0.0);
+  venus.obj.rotateY(0.0);
+  earth.obj.rotateY(0.0);
+  mars.obj.rotateY(0.0);
+  jupiter.obj.rotateY(0.0);
+  saturn.obj.rotateY(0.0);
+  uranus.obj.rotateY(0.0);
+  neptune.obj.rotateY(0.0);
+  pluto.obj.rotateY(0.0);
+
+  renderer.render(scene, camera);
+}
+
 renderer.setAnimationLoop(animate);
 
 
@@ -154,7 +193,7 @@ window.addEventListener("resize", function () {
 
 function fitCameraToObject( camera, object, offset ) {
 
-  offset = offset || 20;
+  offset = offset || 30;
   
   const boundingBox = new THREE.Box3();
   
@@ -194,6 +233,15 @@ let travDist = 0;
 let travTime = 0;
 const travSpeed = 350400000;
 
+const nameObject = document.querySelector(".object");
+const dayTemp = document.querySelector(".day_temperature");
+const mass = document.querySelector(".mass");
+const distanceFromSun = document.querySelector(".distance_from_sun");
+const gravity = document.querySelector(".gravity");
+const dayLength = document.querySelector(".day_length");
+const yearLength = document.querySelector(".year_length")
+const infoPage = document.querySelector(".info_page")
+
 travelMenu.addEventListener("click", function(event) {
   lastVisit.innerHTML = `Last Visit: ${lastEle}`;
   currentVisit.innerHTML = `Current Visit: ${currentEle}`
@@ -212,78 +260,192 @@ sunButton.addEventListener("click", function(event) {
   fitCameraToObject(camera, sun)
   currentEle = "Sun"
   currentDist = 0;
+  if (infoPage.style.display = 'none') {
+    infoPage.style.display = 'block';
+  }
+  nameObject.innerHTML = `Name: Sun`;
+  dayTemp.innerHTML = `Surface Temperature: 5778 Kelvin`
+  mass.innerHTML = `Mass: 1.9891 * 10^30 kg`
+  distanceFromSun.innerHTML = `Distance from Sun: 0 km`
+  gravity.innerHTML = `Gravity: 274 meters/s^2`
+  dayLength.innerHTML = `Day Length: N/A`
+  yearLength.innerHTML = `Year Length: N/A`
 });
 
 const mercuryButton = document.querySelector(".mercury_button");
 mercuryButton.addEventListener("click", function(event) {
   currentEle = "Mercury"
   currentDist = 57900000;
-  fitCameraToObject(camera, mercury)
+  renderer.setAnimationLoop(animateTwo);
+  fitCameraToObject(camera, mercury.obj, 60)
+  if (infoPage.style.display = 'none') {
+    infoPage.style.display = 'block';
+  }
+  nameObject.innerHTML = `Name: Mercury`;
+  dayTemp.innerHTML = `Surface Temperature: 440 Kelvin`
+  mass.innerHTML = `Mass: 3.3022 * 10^23 kg`
+  distanceFromSun.innerHTML = `Distance from Sun: ${currentDist} km`
+  gravity.innerHTML = `Gravity: 24.92 meters/s^2`
+  dayLength.innerHTML = `Day Length: 1408 Hours`
+  yearLength.innerHTML = `Year Length: 88 Earth Days`
 });
 
 const venusButton = document.querySelector(".venus_button");
 venusButton.addEventListener("click", function(event) {
   currentEle = "Venus"
   currentDist = 108200000;
-  fitCameraToObject(camera, venus)
+  renderer.setAnimationLoop(animateTwo);
+  fitCameraToObject(camera, venus.obj)
+  if (infoPage.style.display = 'none') {
+    infoPage.style.display = 'block';
+  }
+  nameObject.innerHTML = `Name: Venus`;
+  dayTemp.innerHTML = `Surface Temperature: 737 Kelvin`
+  mass.innerHTML = `Mass: 4.8685 * 10^24 kg`
+  distanceFromSun.innerHTML = `Distance from Sun: ${currentDist} km`
+  gravity.innerHTML = `Gravity: 8.87 meters/s^2`
+  dayLength.innerHTML = `Day Length: 5832 hours`
+  yearLength.innerHTML = `Year Length: 225 Earth Days`
 });
 
 const earthButton = document.querySelector(".earth_button");
 earthButton.addEventListener("click", function(event) {
   currentEle = "Earth"
   currentDist = 149600000;
-  fitCameraToObject(camera, earth)
+  renderer.setAnimationLoop(animateTwo);
+  fitCameraToObject(camera, earth.obj)
+  if (infoPage.style.display = 'none') {
+    infoPage.style.display = 'block';
+  }
+  nameObject.innerHTML = `Name: Earth`;
+  dayTemp.innerHTML = `Surface Temperature: 288 Kelvin`
+  mass.innerHTML = `Mass: 5.9736 * 10^24 kg`
+  distanceFromSun.innerHTML = `Distance from Sun: ${currentDist} km`
+  gravity.innerHTML = `Gravity: 9.798 meters/s^2`
+  dayLength.innerHTML = `Day Length: 24 Hours`
+  yearLength.innerHTML = `Year Length: 365 Earth Days`
 });
 
 const marsButton = document.querySelector(".mars_button");
 marsButton.addEventListener("click", function(event) {
   currentEle = "Mars"
-  currentDist = 227900000
-  fitCameraToObject(camera, mars)
+  currentDist = 227900000;
+  renderer.setAnimationLoop(animateTwo);
+  fitCameraToObject(camera, mars.obj, 80)
+  if (infoPage.style.display = 'none') {
+    infoPage.style.display = 'block';
+  }
+  nameObject.innerHTML = `Name: Mars`;
+  dayTemp.innerHTML = `Surface Temperature: 210 Kelvin`
+  mass.innerHTML = `Mass: 6.4185 * 10^23 kg`
+  distanceFromSun.innerHTML = `Distance from Sun: ${currentDist} km`
+  gravity.innerHTML = `Gravity: 3.71 meters/s^2`
+  dayLength.innerHTML = `Day Length: 25`
+  yearLength.innerHTML = `Year Length: 687 Earth Days`
 });
 
 const jupiterButton = document.querySelector(".jupiter_button");
 jupiterButton.addEventListener("click", function(event) {
   currentEle = "Jupiter"
   currentDist = 778600000
-  fitCameraToObject(camera, jupiter)
+  renderer.setAnimationLoop(animateTwo);
+  fitCameraToObject(camera, jupiter.obj)
+  if (infoPage.style.display = 'none') {
+    infoPage.style.display = 'block';
+  }
+  nameObject.innerHTML = `Name: Jupiter`;
+  dayTemp.innerHTML = `Surface Temperature: 165 Kelvin`
+  mass.innerHTML = `Mass: 1.8986 * 10^27 kg`
+  distanceFromSun.innerHTML = `Distance from Sun: ${currentDist} km`
+  gravity.innerHTML = `Gravity: 24.92 meters/s^2`
+  dayLength.innerHTML = `Day Length: 10 Hours`
+  yearLength.innerHTML = `Year Length: 4333 Earth Days`
 });
 
 const saturnButton = document.querySelector(".saturn_button");
 saturnButton.addEventListener("click", function(event) {
   currentEle = "Saturn"
   currentDist = 1433500000
-  fitCameraToObject(camera, saturn)
+  renderer.setAnimationLoop(animateTwo);
+  fitCameraToObject(camera, saturn.obj, 300)
+  if (infoPage.style.display = 'none') {
+    infoPage.style.display = 'block';
+  }
+  nameObject.innerHTML = `Name: Saturn`;
+  dayTemp.innerHTML = `Surface Temperature: 134 Kelvin`
+  mass.innerHTML = `Mass: 5.6846 * 10^26 kg`
+  distanceFromSun.innerHTML = `Distance from Sun: ${currentDist} km`
+  gravity.innerHTML = `Gravity: 10.44 meters/s^2`
+  dayLength.innerHTML = `Day Length: 11 Hours`
+  yearLength.innerHTML = `Year Length: 10759 Earth Days`
 });
 
 const uranusButton = document.querySelector(".uranus_button");
 uranusButton.addEventListener("click", function(event) {
   currentEle = "Uranus"
   currentDist = 2872500000
-  fitCameraToObject(camera, uranus)
+  renderer.setAnimationLoop(animateTwo);
+  fitCameraToObject(camera, uranus.obj, 800)
+  if (infoPage.style.display = 'none') {
+    infoPage.style.display = 'block';
+  }
+  nameObject.innerHTML = `Name: Uranus`;
+  dayTemp.innerHTML = `Surface Temperature: 76 Kelvin`
+  mass.innerHTML = `Mass: 8.6810 * 10^25 kg`
+  distanceFromSun.innerHTML = `Distance from Sun: ${currentDist} km`
+  gravity.innerHTML = `Gravity: 8.87 meters/s^2`
+  dayLength.innerHTML = `Day Length: 17 Hours`
+  yearLength.innerHTML = `Year Length: 60190 Earth Days`
 });
 
 const neptuneButton = document.querySelector(".neptune_button");
 neptuneButton.addEventListener("click", function(event) {
   currentEle = "Neptune"
   currentDist = 4495100000
-  fitCameraToObject(camera, neptune)
+  renderer.setAnimationLoop(animateTwo);
+  fitCameraToObject(camera, neptune.obj, 800)
+  if (infoPage.style.display = 'none') {
+    infoPage.style.display = 'block';
+  }
+  nameObject.innerHTML = `Name: Neptune`;
+  dayTemp.innerHTML = `Surface Temperature: 72 Kelvin`
+  mass.innerHTML = `Mass: 10.243 * 10^25 kg`
+  distanceFromSun.innerHTML = `Distance from Sun: ${currentDist} km`
+  gravity.innerHTML = `Gravity: 11.15 meters/s^2`
+  dayLength.innerHTML = `Day Length: 16 Hours`
+  yearLength.innerHTML = `Year Length: 60190 Earth Days`
 });
 
 const plutoButton = document.querySelector(".pluto_button");
 plutoButton.addEventListener("click", function(event) {
   currentEle = "Pluto"
   currentDist = 5900000000
-  fitCameraToObject(camera, pluto)
+  renderer.setAnimationLoop(animateTwo);
+  fitCameraToObject(camera, pluto.obj, 800)
+  if (infoPage.style.display = 'none') {
+    infoPage.style.display = 'block';
+  }
+  nameObject.innerHTML = `Name: Pluto`;
+  dayTemp.innerHTML = `Surface Temperature: 50 Kelvin`
+  mass.innerHTML = `Mass: 1.25 * 10^22 kg`
+  distanceFromSun.innerHTML = `Distance from Sun: ${currentDist} km`
+  gravity.innerHTML = `Gravity: 0.58 meters/s^2`
+  dayLength.innerHTML = `Day Length: 153 Hours`
+  yearLength.innerHTML = `Year Length: 90582 Earth Days`
 });
 
 const overviewButton = document.querySelector(".overview_button") 
 overviewButton.addEventListener("click", function(event) {
   camera.position.set(-260, 400, 425);
   orbit.update();
+  renderer.setAnimationLoop(animate);
+  if (infoPage.style.display = 'block') {
+    infoPage.style.display = 'none';
+  }
 });
 
 const resetButton = document.querySelector(".reset_button")
 resetButton.addEventListener("click", function(event) {
   location.reload();
 })
+
