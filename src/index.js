@@ -27,12 +27,12 @@ const camera = new THREE.PerspectiveCamera(
   45,
   window.innerWidth / window.innerHeight,
   0.1,
-  1000
+  2000
 );
 
 const orbit = new OrbitControls(camera, renderer.domElement);
 
-camera.position.set(-90, 140, 140);
+camera.position.set(-200, 400, 800);
 orbit.update();
 
 const ambientLight = new THREE.AmbientLight(0x333333);
@@ -88,10 +88,10 @@ function createPlanet(size, texture, position, ring) {
 
 
 //Create each planet
-const mercury = createPlanet(3.2, mercuryTexture, 20);
-const venus = createPlanet(5.8, venusTexture, 37.374);
-const earth = createPlanet(6, earthTexture, 51.6752);
-const mars = createPlanet(4, marsTexture, 78.721);
+const mercury = createPlanet(3.2, mercuryTexture, 30);
+const venus = createPlanet(5.8, venusTexture, 50);
+const earth = createPlanet(6, earthTexture, 65);
+const mars = createPlanet(4, marsTexture, 94);
 const jupiter = createPlanet(12, jupiterTexture, 150);
 const saturn = createPlanet(10, saturnTexture, 200, {
   innerRadius: 10,
@@ -107,10 +107,10 @@ const neptune = createPlanet(7, neptuneTexture, 315);
 const pluto = createPlanet(2.8, plutoTexture, 400);
 
 //Add light source coming from sun
-const pointLight = new THREE.PointLight(0xffffff, 2, 200);
+const pointLight = new THREE.PointLight(0xffffff, 1.5, 300);
 scene.add(pointLight);
 //Add another light source for further planets, dimmer light
-const pointLight2 = new THREE.PointLight(0xffffff, 1.5, 400);
+const pointLight2 = new THREE.PointLight(0xffffff, 1.5, 450);
 scene.add(pointLight2);
 
 function animate() {
@@ -150,5 +150,3 @@ window.addEventListener("resize", function () {
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-const audio = new Audio("music/dreamstate.webm")
-audio.play();

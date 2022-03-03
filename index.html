@@ -32,7 +32,7 @@
     <span class="setting_buttons">
         <button type ="button" class="menu_button">
             <span class ="button_icon_menu">
-                <img src="https://img.icons8.com/ios/50/000000/menu--v1.png"/></a>
+                <img src="https://img.icons8.com/ios/50/000000/info--v1.png" onclick="toggleMenu()"/></a>
             </span>
         </button>
         <button type ="button" class="volume_button">
@@ -42,7 +42,7 @@
         </button>
     </span>
 
-    <button type="button" class="zoom_in">
+    <!-- <button type="button" class="zoom_in">
         <span class="button_zoom_in">
             <img src="https://img.icons8.com/external-tanah-basah-detailed-outline-tanah-basah/48/000000/external-plus-user-interface-tanah-basah-detailed-outline-tanah-basah.png"/>
         </span>
@@ -50,9 +50,47 @@
     <button type="button" class="zoom_out">
         <span class="button_zoom_out">
             <img src="https://img.icons8.com/external-tanah-basah-detailed-outline-tanah-basah/50/000000/external-minus-user-interface-tanah-basah-detailed-outline-tanah-basah-2.png"/>
-    </button>
+    </button> -->
+
+    <!-- <button type ="button" class="xmenu_button">
+        <span class ="button_icon_x">
+            <img src="https://img.icons8.com/ios/50/000000/x.png" onclick="toggleMenu()"/></a>
+        </span>
+    </button> -->
+
+
+    
+    <div class="gradient-border" id="box">
+        <ul id = "instruction_menu">
+            <li>Welcome to Alan's Somewhat Accurate Solar System!</li>
+            <li>Left click and drag to rotate</li>
+            <li>Right click and drag to move around</li>
+            <li>Scroll wheel to zoom in</li>
+            <li>Use the menu on the side to travel and get more details</li>
+            <li>Toggle music with the play button on the bottom right</li>
+            <li>Check out my other work on the bottom left!</li>
+            <li>-By Alan Yueh</li>
+        </ul>
+    </div>
+
+    <div class = "travel_menu">
+        <li>Travel To: </li>
+        <button>Sun</button>
+        <button>Mercury</button>
+        <button>Venus</button>
+        <button>Earth</button>
+        <button>Mars</button>
+        <button>Jupiter</button>
+        <button>Saturn</button>
+        <button>Uranus</button>
+        <button>Neptune</button>
+        <button>Pluto</button>
+    </div>
+
+    </ul>
     <script>
         const audio = new Audio("music/dreamstate.webm");
+        audio.volume = 0.5;
         function toggleMusic() {
             if (audio.paused) {
                 audio.play();
@@ -67,6 +105,18 @@
                 image.src = "https://img.icons8.com/ios-filled/50/000000/pause--v1.png";
             } else {
                 image.src = "https://img.icons8.com/ios-filled/50/000000/play--v1.png";
+            }
+        }
+
+        function toggleMenu() {
+            var menu = document.getElementById("instruction_menu");
+            var box = document.getElementById("box");
+            if (menu.style.display === "none") {
+                menu.style.display = "block";
+                box.style.display = "block";
+            } else {
+                menu.style.display = "none";
+                box.style.display = "none";
             }
         }
     </script>
