@@ -215,7 +215,7 @@ audio {
 .tech_buttons {
   position: fixed;
   right: 41px;
-  bottom: 200px;
+  bottom: 175px;
   font-family: monospace;
   font-size: 20px;
 }
