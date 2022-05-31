@@ -214,14 +214,13 @@ audio {
 
 .tech_buttons {
   position: fixed;
-  right: 41px;
-  bottom: 175px;
+  bottom: 31px;
+  left: 43%;
   font-family: monospace;
   font-size: 20px;
 }
 
 .tech_buttons > button {
-  display: block;
   font-size: 20px;
   font-family: monospace;
   margin-bottom: 10px;
